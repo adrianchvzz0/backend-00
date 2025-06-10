@@ -1,5 +1,6 @@
 require('dotenv').config();
-const serviceAccount = JSON.parse(process.env.FIREBASE_ADMIN_CREDENTIALS);
+const serviceAccount = JSON.parse(process.env.FIREBASE_ADMIN_JSON.replace(/\\n/g, '\n'));
+
 const admin = require('firebase-admin');
 
 admin.initializeApp({
