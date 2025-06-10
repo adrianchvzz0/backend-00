@@ -1,6 +1,7 @@
 const express = require("express");
 const { db } = require("./firebaseAdmin");
 
+
 const router = express.Router();
 
 // Obtener todos los eventos
