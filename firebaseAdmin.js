@@ -10,7 +10,6 @@ admin.initializeApp({
     storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
     databaseURL: process.env.FIREBASE_DATABASE_URL,
 });
-a
 
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
