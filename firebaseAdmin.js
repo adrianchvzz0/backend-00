@@ -1,14 +1,11 @@
 require('dotenv').config();
+const serviceAccount = require('./firebase-admin.json');
 const admin = require('firebase-admin');
 
 admin.initializeApp({
-    credential: admin.credential.cert({
-        projectId: process.env.FIREBASE_PROJECT_ID,
-        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-    }),
-    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
-    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    credential: admin.credential.cert(serviceAccount),
+    storageBucket: serviceAccount.project_id + '.appspot.com',
+    databaseURL: `https://${serviceAccount.project_id}-default-rtdb.firebaseio.com`
 });
 
 const db = admin.firestore();
