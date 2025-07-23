@@ -6,7 +6,11 @@ const routes = require("../../routes"); // sube dos niveles si está en raíz
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: '*', // O especifica tu dominio
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Rutas principales (todo irá bajo /api/*)
