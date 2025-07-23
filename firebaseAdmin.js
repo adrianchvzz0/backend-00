@@ -5,7 +5,7 @@ const serviceAccount = JSON.parse(process.env.FIREBASE_ADMIN_JSON);
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
-    storageBucket: serviceAccount.project_id + '.appspot.com',
+    storageBucket: serviceAccount.project_id + '.firebasestorage.app',
     databaseURL: `https://${serviceAccount.project_id}-default-rtdb.firebaseio.com`
 });
 
