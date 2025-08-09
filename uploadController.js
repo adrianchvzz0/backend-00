@@ -11,7 +11,7 @@ const upload = multer({ storage: storage });
 // Agregar evento
 router.post("/", async (req, res) => {
     try {
-        const { title, location, palco, date, image, imageSecondary, prices, details, category } = req.body;
+        const { title, location, palco, date1, date2, quantity, image, imageSecondary, prices, details, category } = req.body;
         const newEventRef = db.collection("events").doc();
 
         await newEventRef.set({
@@ -19,7 +19,9 @@ router.post("/", async (req, res) => {
             title,
             location,
             palco,
-            date,
+            date1,
+            date2,
+            quantity,
             image,
             imageSecondary,
             prices,
